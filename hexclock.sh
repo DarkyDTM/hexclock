@@ -2,7 +2,7 @@
 WALL="/tmp/hexclock.png"
 WIDTH=1920
 HEIGHT=1080
-FONT="Roboto-Mono-Regular"
+FONT="/usr/share/fonts/noto/NotoSans-Regular.ttf"
 POINTSIZE=90
 TEXT_COLOR="white"
 
@@ -15,6 +15,9 @@ while true; do
         -annotate +0-20 "#${HEX}" \
         "$WALL"
 
-    gsettings set org.gnome.desktop.background picture-uri-dark "file://$WALL"
-    sleep 1
+    swww img $WALL \
+	--transition-type none \
+	--transition-duration 0
+
+    sleep 0.9
 done
